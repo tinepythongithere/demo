@@ -14,7 +14,7 @@ df_unique = df.loc[:,['PRENOM', 'NOM', 'Prenom et Nom', 'TELEPHONE', 'ADRESSE CH
 df_unique = df_unique.drop_duplicates()
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.MATERIA])
-
+server = app.server
 liste_chauffeur = dcc.Dropdown(
     options=[{'label': df_unique.loc[i, "Prenom et Nom"], 'value': i} for i in df_unique.index],
     id='liste_chauffeur',
